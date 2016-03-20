@@ -39,8 +39,9 @@ int main() {
 	
 	//simulate a year's worth of projects:
 	for(int businessDay=0; businessDay<250; businessDay++) {
-            //determine number of projects initiated on this day according to this probability distribution function which sort of peaks around the summer:
-            pdf_projInit = 0.5*exp( ((businessDay-125.)*(businessDay-125.))/(-2.*70.*70.) ); // probability distribution function for whether a project comes in on a given day
+            //determine number of projects initiated on this day according to
+            //this probability distribution function which sort of peaks around the summer:
+            pdf_projInit = 0.5*exp( ((businessDay-125.)*(businessDay-125.))/(-2.*70.*70.) );
             rando = 0.001*(rand()%1000);
             nproj = 0;
             //3rd order probability for 3 projects, etc.:
@@ -50,7 +51,8 @@ int main() {
             //ignore 4th order and beyond
             
             for(int i=0; i<nproj; i++) {
-                    //make project completion time according to semi-gaussian distribution around 3 weeks (15 business days), w/ statistically longer times taken in nice weather (weightedSmear):
+                    //make project completion time according to semi-gaussian distribution around
+                    //3 weeks (15 business days), w/ statistically longer times taken in nice weather (weightedSmear):
                     mainGaus = (.01/4.)*(rand()%3000+rand()%3000+rand()%3000+rand()%3000);
                     if(smearSummerTime) weightedSmear = exp( ((businessDay-125.)*(businessDay-125.))/(-2.*20.*20.) )*(10.+(.01/4.)*(rand()%3000+rand()%3000+rand()%3000+rand()%3000));
                     else weightedSmear = 0.;
