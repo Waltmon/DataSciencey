@@ -1,4 +1,4 @@
-# DataSciencey
+# summerSloth
 
 Produces some fake data, representing projects done over a year (250 business days), and then does a simple analysis of it.
 
